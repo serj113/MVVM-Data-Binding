@@ -15,11 +15,24 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/tv_man_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/man_counter"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_counter_man"/>
+
+        <TextView
+            android:id="@+id/tv_counter_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_man_title"
             app:layout_constraintBottom_toTopOf="@+id/btn_minus_man" />
 
         <ImageButton
@@ -50,11 +63,24 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/tv_woman_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/woman_counter"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_counter_woman"/>
+
+        <TextView
+            android:id="@+id/tv_counter_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_woman_title"
             app:layout_constraintBottom_toTopOf="@+id/btn_minus_woman" />
 
         <ImageButton
@@ -85,11 +111,24 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/tv_kids_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/woman_counter"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_counter_kids"/>
+
+        <TextView
+            android:id="@+id/tv_counter_kids"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_kids_title"
             app:layout_constraintBottom_toTopOf="@+id/btn_minus_kids" />
 
         <ImageButton
