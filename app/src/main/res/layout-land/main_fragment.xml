@@ -1,155 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".ui.main.MainFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.mvvm.databinding.ui.main.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        tools:context=".ui.main.MainFragment">
 
-        <TextView
-            android:id="@+id/tv_man_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/man_counter"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tv_counter_man"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_counter_man"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_man_title"
-            app:layout_constraintBottom_toTopOf="@+id/btn_minus_man" />
+            <TextView
+                android:id="@+id/tv_man_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/man_counter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_counter_man" />
 
-        <ImageButton
-            android:id="@+id/btn_minus_man"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ic_minus"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btn_add_man" />
+            <TextView
+                android:id="@+id/tv_counter_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Integer.toString(viewModel.counterMan)}"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_man_title"
+                app:layout_constraintBottom_toTopOf="@+id/btn_minus_man" />
 
-        <ImageButton
-            android:id="@+id/btn_add_man"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/ic_plus"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <ImageButton
+                android:id="@+id/btn_minus_man"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_minus"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{() -> viewModel.reduceCounterMan()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btn_add_man" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:id="@+id/btn_add_man"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ic_plus"
+                android:onClick="@{() -> viewModel.addCounterMan()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:padding="16dp">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tv_woman_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/woman_counter"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tv_counter_woman"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_counter_woman"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_woman_title"
-            app:layout_constraintBottom_toTopOf="@+id/btn_minus_woman" />
+            <TextView
+                android:id="@+id/tv_woman_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/woman_counter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_counter_woman" />
 
-        <ImageButton
-            android:id="@+id/btn_minus_woman"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ic_minus"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btn_add_woman" />
+            <TextView
+                android:id="@+id/tv_counter_woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@{Integer.toString(viewModel.counterWoman)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_woman_title"
+                app:layout_constraintBottom_toTopOf="@+id/btn_minus_woman" />
 
-        <ImageButton
-            android:id="@+id/btn_add_woman"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/ic_plus"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <ImageButton
+                android:id="@+id/btn_minus_woman"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_minus"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{() -> viewModel.reduceCounterWoman()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btn_add_woman" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:id="@+id/btn_add_woman"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ic_plus"
+                android:onClick="@{() -> viewModel.addCounterWoman()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:padding="16dp">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tv_kids_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/woman_counter"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tv_counter_kids"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_counter_kids"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_kids_title"
-            app:layout_constraintBottom_toTopOf="@+id/btn_minus_kids" />
+            <TextView
+                android:id="@+id/tv_kids_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/woman_counter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_counter_kids" />
 
-        <ImageButton
-            android:id="@+id/btn_minus_kids"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ic_minus"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btn_add_kids" />
+            <TextView
+                android:id="@+id/tv_counter_kids"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@{Integer.toString(viewModel.counterKid)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_kids_title"
+                app:layout_constraintBottom_toTopOf="@+id/btn_minus_kids" />
 
-        <ImageButton
-            android:id="@+id/btn_add_kids"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/ic_plus"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <ImageButton
+                android:id="@+id/btn_minus_kids"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_minus"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{() -> viewModel.reduceCounterKid()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btn_add_kids" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:id="@+id/btn_add_kids"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/ic_plus"
+                android:onClick="@{() -> viewModel.addCounterKid()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-</LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>
