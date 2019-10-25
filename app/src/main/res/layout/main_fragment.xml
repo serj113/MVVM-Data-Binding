@@ -36,8 +36,8 @@
                 android:id="@+id/tv_counter_man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{Integer.toString(viewModel.counterMan)}"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                app:textFromInt="@{viewModel.counterMan}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_man_title" />
@@ -85,8 +85,8 @@
                 android:id="@+id/tv_counter_woman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{Integer.toString(viewModel.counterWoman)}"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                app:textFromInt="@{viewModel.counterWoman}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_woman_title" />
@@ -135,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@{Integer.toString(viewModel.counterKid)}"
+                app:textFromInt="@{viewModel.counterKid}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_kids_title" />
