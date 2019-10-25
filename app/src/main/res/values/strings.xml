@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MVVM-Data-Binding</string>
+    <string name="man_counter">Jumlah Laki-laki</string>
+    <string name="woman_counter">Jumlah Perempuan</string>
+    <string name="kids_counter">Jumlah Anak-anak</string>
 </resources>
