@@ -3,8 +3,11 @@ package com.example.mvvm.databinding.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.mvvm.databinding.model.Counter
 
 class MainViewModel : ViewModel() {
+
+    private val counter = Counter()
 
     private val counterWoman = MutableLiveData<Int>().apply {
         value = 0
@@ -17,45 +20,46 @@ class MainViewModel : ViewModel() {
         value = 0
     }
 
-    fun addCounterWoman() {
-        counterWoman.value = (counterWoman.value ?: 0) + 1
-    }
-
-    fun reduceCounterWoman() {
-        if (counterWoman.value ?: 0 > 0) {
-            counterWoman.value = (counterWoman.value ?: 0) - 1
-        }
-    }
-
-    fun getCounterWoman(): LiveData<Int> {
-        return counterWoman
-    }
-
     fun addCounterMan() {
-        counterMan.value = (counterMan.value ?: 0) + 1
+        counter.addMan()
+        counterMan.value = counter.man
     }
 
     fun reduceCounterMan() {
-        if (counterMan.value ?: 0 > 0) {
-            counterMan.value = (counterMan.value ?: 0) - 1
-        }
+        counter.reduceMan()
+        counterMan.value = counter.man
     }
 
     fun getCounterMan(): LiveData<Int> {
         return counterMan
     }
 
+    fun addCounterWoman() {
+        counter.addWoman()
+        counterWoman.value = counter.woman
+    }
+
+    fun reduceCounterWoman() {
+        counter.reduceWoman()
+        counterWoman.value = counter.woman
+    }
+
+    fun getCounterWoman(): LiveData<Int> {
+        return counterWoman
+    }
+
     fun addCounterKid() {
-        counterKid.value = (counterKid.value ?: 0) + 1
+        counter.addKid()
+        counterKid.value = counter.kid
     }
 
     fun reduceCounterKid() {
-        if (counterKid.value ?: 0 > 0) {
-            counterKid.value = (counterKid.value ?: 0) - 1
-        }
+        counter.reduceKid()
+        counterKid.value = counter.kid
     }
 
     fun getCounterKid(): LiveData<Int> {
         return counterKid
     }
 }
+
